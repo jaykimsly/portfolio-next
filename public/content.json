@@ -436,7 +436,7 @@
       "pitch": "Online shops, booking and management systems, built end to end.",
       "framework": "Angular",
       "url": "https://angular.jaykimsly.co.za",
-      "status": "soon"
+      "status": "live"
     },
     {
       "id": "frontend",
@@ -463,7 +463,7 @@
       "pitch": "From UI to database to pipelines: Azure, Docker and CI/CD.",
       "framework": "Svelte",
       "url": "https://svelte.jaykimsly.co.za",
-      "status": "soon"
+      "status": "live"
     }
   ]
 }
