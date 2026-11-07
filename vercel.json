@@ -4,8 +4,5 @@
       "master": true,
       "development": true
     }
-  },
-  "github": {
-    "autoAlias": false
   }
 }
