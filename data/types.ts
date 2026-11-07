@@ -1,67 +1,91 @@
-export interface SocialLink {
-  url: string;
-  label: string;
-}
-
-export interface PersonalInfo {
+export interface Person {
   name: string;
+  shortName: string;
   title: string;
-  email: string;
-  phone: string;
   location: string;
+  languages: string[];
   profileImage: string;
   aboutImage: string;
-  typewriterWords: string[];
-  bio: string[];
   siteUrl: string;
-  ogImage: string;
+  summary: string;
+  headlines: string[];
+  bio: string[];
 }
 
-export interface ExperienceEntry {
-  id: number;
-  company: string;
-  role: string;
-  companyLogo: string;
-  period: string;
-  techStack: TechIcon[];
-  points: string[];
+export interface Phone {
+  number: string;
+  display: string;
+  calls: boolean;
+  whatsapp: boolean;
+}
+
+export interface SocialLink {
+  label: string;
+  url: string;
+}
+
+export interface Service {
+  name: string;
+  description: string;
 }
 
 export interface TechIcon {
   name: string;
-  iconUrl: string;
+  icon: string;
 }
 
-export interface SkillEntry {
-  name: string;
-  iconUrl: string;
+export interface ExperienceEntry {
+  company: string;
+  role: string;
+  logo: string;
+  start: string;
+  end: string | null;
+  period: string;
+  stack: TechIcon[];
+  points: string[];
+}
+
+export interface SkillEntry extends TechIcon {
   proficiency: number;
 }
 
 export interface ProjectEntry {
-  id: number;
   name: string;
   description: string;
-  html_url: string;
-  homepage: string;
   language: string;
-  topics: string[];
-  updated_at: string;
-  stargazers_count: number;
-  forks_count: number;
+  tags: string[];
+  repo: string;
+  url: string;
+  portfolios: PortfolioId[];
 }
 
-export interface ContactFormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+export type PortfolioId = "services" | "systems" | "frontend" | "backend" | "fullstack";
+
+export interface Portfolio {
+  id: PortfolioId;
+  title: string;
+  audience: string;
+  pitch: string;
+  framework: string;
+  url: string;
+  status: "live" | "soon";
 }
 
-export interface PortfolioData {
-  personal: PersonalInfo;
+export interface Hub {
+  url: string;
+  title: string;
+  text: string;
+}
+
+export interface Content {
+  version: number;
+  person: Person;
+  phones: Phone[];
   socials: SocialLink[];
+  services: Service[];
   experience: ExperienceEntry[];
   skills: SkillEntry[];
   projects: ProjectEntry[];
+  portfolios: Portfolio[];
+  hub: Hub;
 }
