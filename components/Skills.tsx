@@ -1,30 +1,30 @@
 import { motion } from 'framer-motion'
-import React from 'react'
 import Skill from './Skill'
-import { portfolioData } from '../data/portfolio';
+import { content } from '../lib/content';
 
 export default function Skills() {
+  const { skills } = content;
+
   return (
     <motion.div
     initial = {{opacity:0}}
     whileInView={{opacity:1}}
+    viewport={{ once: true }}
     transition={{duration:1.5}}
-    className=' flex relative flex-col text-center md:text-left xl:flex-row
-    max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
+    className='flex relative flex-col text-center max-w-[2000px] xl:px-10 min-h-screen pt-48 pb-10 justify-center mx-auto items-center'>
+      <h2 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
         Skills
-      </h3>
+      </h2>
 
-      <h3 className='absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm'>
+      <p className='absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm px-5'>
         Hover over a skill for current proficiency
-      </h3>
+      </p>
 
-      <div className='grid grid-cols-4 gap-5' >
-        {portfolioData.skills.map((skill, index) => (
-          <Skill key={skill.name} skill={skill} directionLeft={index < portfolioData.skills.length / 2} />
+      <ul className='grid grid-cols-4 gap-3 sm:gap-5'>
+        {skills.map((skill, index) => (
+          <Skill key={skill.name} skill={skill} directionLeft={index < skills.length / 2} />
         ))}
-      </div>
-
+      </ul>
     </motion.div>
   )
 }
